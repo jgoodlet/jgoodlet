@@ -1,142 +1,112 @@
-@font-face {
-  font-family: 'ScalaSans';
-  src: url("ScalaSansWebPro.eot");
-  /* IE9 Compat Modes */
-  src: url("ScalaSansWebPro.eot?#iefix") format("embedded-opentype"), url("ScalaSansWebPro.woff") format("woff");
-}
-@font-face {
-  font-family: 'ScalaSansSc';
-  src: url("ScalaSansScWebPro.eot");
-  /* IE9 Compat Modes */
-  src: url("ScalaSansScWebPro.eot?#iefix") format("embedded-opentype"), url("ScalaSansScWebPro.woff") format("woff");
-}
-@font-face {
-  font-family: 'Scala';
-  src: url("ScalaWeb.eot");
-  /* IE9 Compat Modes */
-  src: url("ScalaWeb.eot?#iefix") format("embedded-opentype"), url("ScalaWeb.woff") format("woff");
-}
-@font-face {
-  font-family: 'ScalaItalic';
-  src: url("ScalaWeb-Ita.eot");
-  /* IE9 Compat Modes */
-  src: url("ScalaWeb-Ita.eot?#iefix") format("embedded-opentype"), url("ScalaWeb-Ita.woff") format("woff");
-}
-html, body {
-  height: 100%;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-::-moz-selection {
-  background: black;
-  color: white;
-  text-shadow: none;
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 ::selection {
-  background: black;
-  color: white;
-  text-shadow: none;
+    background: #e8e8e8;
+    color: #0a0a0a;
 }
 
-h1, h2, p {
-  font-size: 1rem;
-  margin: 0;
-  font-weight: normal;
+html, body {
+    height: 100%;
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Scala', sans-serif;
-  background: #fbfbfb;
-}
-@media only screen and (max-width: 35em) {
-  body {
-    background: rgba(0, 0, 0, 0.85);
-  }
+    background: #1f1f1f;
+    color: #e8e8e8;
+    font-family: 'IBM Plex Mono', 'Cascadia Code', 'Menlo', 'Consolas', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 3rem;
 }
 
-.wrapper {
-  width: 100%;
-  height: 100%;
-}
-.wrapper .content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-}
-@media only screen and (max-width: 35em) {
-  .wrapper .content {
-    flex-direction: column;
-  }
-}
-.wrapper .content section {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  padding: 5em;
-}
-@media only screen and (max-width: 35em) {
-  .wrapper .content section {
+main {
+    max-width: 480px;
     width: 100%;
-    height: auto;
-    padding: 3em;
-  }
+    animation: appear 1.8s ease forwards;
+    opacity: 0;
 }
-.wrapper .content section article {
-  width: 100%;
-  margin: auto;
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.wrapper .content section.masthead {
-  background: white;
+
+h1 {
+    font-size: 1.15rem;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: lowercase;
+    margin-bottom: 0.4rem;
 }
-@media only screen and (max-width: 35em) {
-  .wrapper .content section.masthead {
-    background: none;
-  }
+
+.role {
+    font-size: 0.9rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #888;
+    margin-bottom: 2.8rem;
 }
-.wrapper .content section.masthead article h1 {
-  margin: 0 0 .25em 0;
-  font-size: 1.25rem;
-  font-family: 'ScalaSansSc', sans-serif;
-  text-transform: lowercase;
-  letter-spacing: .175em;
-  text-align: center;
+
+.cursor {
+    display: inline-block;
+    animation: blink 1.2s step-end infinite;
 }
-.wrapper .content section.masthead article h2 {
-  font-family: 'ScalaItalic', sans-serif;
-  text-align: center;
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
 }
-@media only screen and (max-width: 35em) {
-  .wrapper .content section.masthead article {
-    color: white;
-  }
+
+.bio p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: #999;
+    font-weight: 300;
 }
-.wrapper .content section.bio {
-  background: rgba(0, 0, 0, 0.85);
+
+.quote {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: #999;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 1.2rem;
 }
-@media only screen and (max-width: 35em) {
-  .wrapper .content section.bio {
-    background: none;
-  }
-}
-.wrapper .content section.bio article {
-  max-width: 500px;
-}
-.wrapper .content section.bio article p {
-  color: white;
-  line-height: 1.5;
+
+.attribution {
+    color: #555;
+    font-style: normal;
 }
 
 a {
-  color: white;
+    color: #bbb;
+    text-decoration: none;
+    border-bottom: 1px solid #3d3d3d;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+a:hover {
+    color: #e8e8e8;
+    border-color: #666;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 2.5rem;
+        align-items: flex-start;
+        padding-top: 5rem;
+    }
 }
